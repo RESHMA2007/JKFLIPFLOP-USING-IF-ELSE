@@ -1,4 +1,4 @@
-#JKFLIPFLOP USING IF ELSE
+# JKFLIPFLOP-USING-IF-ELSE
 
 **AIM:** 
 
@@ -32,8 +32,7 @@ By using three variable K-Map, we can get the simplified expression for next sta
 
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=JQ(t)′+K′Q(t)Q(t+1)=JQ(t)′+K′Q(t)
 
-**PROCEDURE**
-
+### Procedure
 step-1 Go to quartus software.
 
 step-2 Set new environment.
@@ -47,24 +46,54 @@ step-5 Give inputs in the waveform table .
 step-6 Run the program.
 
 
+### PROGRAM
 
-**PROGRAM**
-Developed by:Reshma R
-Register number:24900406
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+*/
+### Developed by : Reshma R
+### Registered by : 212224040274
 
-![Screenshot 2024-12-12 133739](https://github.com/user-attachments/assets/402868d9-8865-42d2-9475-543e39f5e592)
+```
+module JKFLIPFLOP(q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
 
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+   begin
+	   if(j==0 && k==0)
+		   begin
+			q<=q;
+			qb<=qb;
+			end
+		else if(j!=k)
+		   begin
+			q<=j;
+			qb<=k;
+			end
+		else if(j==1 && k==1)
+		    begin
+			 q<=~q;
+			 qb<=~qb;
+			 end
+	end
+end	
+endmodule
+```
 
-**RTL LOGIC FOR FLIPFLOPS**
+### RTL LOGIC FOR FLIPFLOPS
+![WhatsApp Image 2024-05-06 at 17 58 45_7623883e](https://github.com/23012653/JKFLIPFLOP-USING-IF-ELSE/assets/150777517/a78a50d2-62da-4739-818c-dce9c9fb056b)
 
-![Screenshot 2024-12-12 133636](https://github.com/user-attachments/assets/1321d55c-81f7-4bbf-8b7d-87e2a2e5ea3d)
+### TIMING DIGRAMS FOR FLIP FLOPS
+![WhatsApp Image 2024-05-06 at 17 58 55_1db1c1ee](https://github.com/23012653/JKFLIPFLOP-USING-IF-ELSE/assets/150777517/94293ba0-9231-4306-9b43-e7d0194f2628)
 
-
-**TIMING DIGRAMS FOR FLIP FLOPS**
-
-![Screenshot 2024-12-12 141015](https://github.com/user-attachments/assets/70531a42-e3f6-462c-a439-d856f6fd13e2)
-
-
-**RESULT**
-
-Studied and verified the truth table of JK flip-flop in  Quartus II using verilog programming successfully.
+### RESULTS
+Thus the code was executed successfully.
